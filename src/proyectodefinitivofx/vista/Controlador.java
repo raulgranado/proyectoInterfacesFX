@@ -52,14 +52,7 @@ public class Controlador implements Initializable {
     private Button convert;
     @FXML
     private Button change;
-//    
-//    @FXML
-//    private void conv(KeyEvent e){
-//        if(e.getKeyCode()==KeyEvent.VK_ENTER){
-//            conversion();
-//        }
-//    }
-    
+
     
     @FXML
     private void convertir(ActionEvent event) {
