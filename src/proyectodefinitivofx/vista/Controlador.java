@@ -139,6 +139,7 @@ public class Controlador implements Initializable {
         }
         textIz.setText(strDer);
         textDer.setText(strIz);
+        conversion();
         
     }
     
@@ -232,7 +233,7 @@ public class Controlador implements Initializable {
         textIz.textProperty().addListener(new ChangeListener<String>(){
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if(!newValue.matches("\\d*([\\.]\\d*)?")){
+                if(!newValue.matches("\\d*([\\.]\\d*)?([E]\\d*)?")){
                     textIz.setText(oldValue);
                 }
             }
