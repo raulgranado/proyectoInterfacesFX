@@ -134,8 +134,12 @@ public class Controlador implements Initializable {
             } 
         }
         
+        if(strDer.equals("")){
+            strIz="";
+        }
         textIz.setText(strDer);
         textDer.setText(strIz);
+        
     }
     
     
