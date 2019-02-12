@@ -6,19 +6,20 @@
 package proyectodefinitivofx.vista;
 
 import convert.*;
-import java.awt.event.KeyEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import proyectodefinitivofx.Principal;
+import proyectodefinitivofx.modelo.Conversiones;
 import proyectodefinitivofx.modelo.TipoAngulo;
 import proyectodefinitivofx.modelo.TipoArea;
 import proyectodefinitivofx.modelo.TipoEnergia;
@@ -34,6 +35,19 @@ import proyectodefinitivofx.modelo.TipoVelocidad;
  * @author DAM-2
  */
 public class Controlador implements Initializable {
+    
+    private Principal main;
+    
+    @FXML
+    private MenuItem ultimas;
+    @FXML
+    private MenuItem informe;
+    @FXML
+    private MenuItem salir;
+    @FXML
+    private MenuItem conv;
+    @FXML
+    private MenuItem camb;
     
     @FXML
     private ComboBox<TipoMedida> cbx;
@@ -75,7 +89,9 @@ public class Controlador implements Initializable {
             int unidad2=cbxDer.getSelectionModel().getSelectedIndex();
             double numero=Double.parseDouble(textIz.getText());
             double result=convert(tipo, unidad1, unidad2, numero);
-            textDer.setText(String.valueOf(result));        
+            textDer.setText(String.valueOf(result));
+            
+            
     }
     
     private double convert(int tipo, int unidad1, int unidad2, double numero) {
@@ -83,30 +99,56 @@ public class Controlador implements Initializable {
         switch(tipo){
             case 0:
                 result=Angulo.convertirAngulo(numero, unidad1, unidad2);
+                main.addConversion(new Conversiones(TipoAngulo.values()[unidad1].toString(),
+                        TipoAngulo.values()[unidad2].toString(), numero, result));
                 break;
             case 1:
                 result=Area.convertirArea(numero, unidad1, unidad2);
+                main.addConversion(new Conversiones(TipoArea.values()[unidad1].toString(),
+                        TipoArea.values()[unidad2].toString(), numero, result));
                 break;
             case 2:
                 result=Energia.convertirEnergia(numero, unidad1, unidad2);
+                main.addConversion(new Conversiones(TipoEnergia.values()[unidad1].toString(),
+                        TipoEnergia.values()[unidad2].toString(), numero, result));
                 break;
             case 3:
                 result=Longitud.convertirLongitud(numero, unidad1, unidad2);
+                main.addConversion(new Conversiones(TipoLongitud.values()[unidad1].toString(),
+                        TipoLongitud.values()[unidad2].toString(), numero, result));
                 break;
             case 4:
                 result=Masa.convertirMasa(numero, unidad1, unidad2);
+                main.addConversion(new Conversiones(TipoMasa.values()[unidad1].toString(),
+                        TipoMasa.values()[unidad2].toString(), numero, result));
                 break;
             case 5:
                 result=Presion.convertirPresion(numero, unidad1, unidad2);
+                main.addConversion(new Conversiones(TipoPresion.values()[unidad1].toString(),
+                        TipoPresion.values()[unidad2].toString(), numero, result));
                 break;
             case 6:
                 result=Temperatura.convertirTemperatura(numero, unidad1, unidad2);
+                main.addConversion(new Conversiones(TipoTemperatura.values()[unidad1].toString(),
+                        TipoTemperatura.values()[unidad2].toString(), numero, result));
                 break;
             case 7:
                 result=Velocidad.convertirVelocidad(numero, unidad1, unidad2);
+                main.addConversion(new Conversiones(TipoVelocidad.values()[unidad1].toString(),
+                        TipoVelocidad.values()[unidad2].toString(), numero, result));
                 break;
         }
         return result;
+    }
+    
+    @FXML
+    private void mostrarUltimasConversiones(){
+        main.mostrarUltimasConversioens();
+    }
+    
+    @FXML
+    private void salir(){
+        System.exit(0);
     }
     
     @FXML
@@ -132,11 +174,16 @@ public class Controlador implements Initializable {
         }
         textIz.setText(strDer);
         textDer.setText(strIz);
-        conversion();
+        if(!textIz.getText().equals("")){
+            conversion();
+        }
+        
         
     }
     
-    
+    public void setMain(Principal main){
+        this.main=main;
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
