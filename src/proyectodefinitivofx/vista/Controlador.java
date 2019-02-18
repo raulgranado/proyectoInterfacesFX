@@ -6,8 +6,16 @@
 package proyectodefinitivofx.vista;
 
 import convert.*;
+import java.io.File;
 import java.net.URL;
+import static java.nio.file.Files.list;
+import static java.rmi.Naming.list;
+import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -18,8 +26,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import net.sf.jasperreports.engine.JRException;
 import proyectodefinitivofx.Principal;
-import proyectodefinitivofx.modelo.Conversiones;
+import proyectodefinitivofx.modelo.AbrirReportes;
+import proyectodefinitivofx.modelo.ConversionesTablaFX;
 import proyectodefinitivofx.modelo.TipoAngulo;
 import proyectodefinitivofx.modelo.TipoArea;
 import proyectodefinitivofx.modelo.TipoEnergia;
@@ -29,6 +39,7 @@ import proyectodefinitivofx.modelo.TipoMedida;
 import proyectodefinitivofx.modelo.TipoPresion;
 import proyectodefinitivofx.modelo.TipoTemperatura;
 import proyectodefinitivofx.modelo.TipoVelocidad;
+
 
 /**
  *
@@ -99,42 +110,42 @@ public class Controlador implements Initializable {
         switch(tipo){
             case 0:
                 result=Angulo.convertirAngulo(numero, unidad1, unidad2);
-                main.addConversion(new Conversiones(TipoAngulo.values()[unidad1].toString(),
+                main.addConversion(new ConversionesTablaFX(TipoAngulo.values()[unidad1].toString(),
                         TipoAngulo.values()[unidad2].toString(), numero, result));
                 break;
             case 1:
                 result=Area.convertirArea(numero, unidad1, unidad2);
-                main.addConversion(new Conversiones(TipoArea.values()[unidad1].toString(),
+                main.addConversion(new ConversionesTablaFX(TipoArea.values()[unidad1].toString(),
                         TipoArea.values()[unidad2].toString(), numero, result));
                 break;
             case 2:
                 result=Energia.convertirEnergia(numero, unidad1, unidad2);
-                main.addConversion(new Conversiones(TipoEnergia.values()[unidad1].toString(),
+                main.addConversion(new ConversionesTablaFX(TipoEnergia.values()[unidad1].toString(),
                         TipoEnergia.values()[unidad2].toString(), numero, result));
                 break;
             case 3:
                 result=Longitud.convertirLongitud(numero, unidad1, unidad2);
-                main.addConversion(new Conversiones(TipoLongitud.values()[unidad1].toString(),
+                main.addConversion(new ConversionesTablaFX(TipoLongitud.values()[unidad1].toString(),
                         TipoLongitud.values()[unidad2].toString(), numero, result));
                 break;
             case 4:
                 result=Masa.convertirMasa(numero, unidad1, unidad2);
-                main.addConversion(new Conversiones(TipoMasa.values()[unidad1].toString(),
+                main.addConversion(new ConversionesTablaFX(TipoMasa.values()[unidad1].toString(),
                         TipoMasa.values()[unidad2].toString(), numero, result));
                 break;
             case 5:
                 result=Presion.convertirPresion(numero, unidad1, unidad2);
-                main.addConversion(new Conversiones(TipoPresion.values()[unidad1].toString(),
+                main.addConversion(new ConversionesTablaFX(TipoPresion.values()[unidad1].toString(),
                         TipoPresion.values()[unidad2].toString(), numero, result));
                 break;
             case 6:
                 result=Temperatura.convertirTemperatura(numero, unidad1, unidad2);
-                main.addConversion(new Conversiones(TipoTemperatura.values()[unidad1].toString(),
+                main.addConversion(new ConversionesTablaFX(TipoTemperatura.values()[unidad1].toString(),
                         TipoTemperatura.values()[unidad2].toString(), numero, result));
                 break;
             case 7:
                 result=Velocidad.convertirVelocidad(numero, unidad1, unidad2);
-                main.addConversion(new Conversiones(TipoVelocidad.values()[unidad1].toString(),
+                main.addConversion(new ConversionesTablaFX(TipoVelocidad.values()[unidad1].toString(),
                         TipoVelocidad.values()[unidad2].toString(), numero, result));
                 break;
         }
@@ -145,6 +156,17 @@ public class Controlador implements Initializable {
     private void mostrarUltimasConversiones(){
         main.mostrarUltimasConversioens();
     }
+    
+    @FXML
+    private void generarInforme() {
+        AbrirReportes abrir = new AbrirReportes(main.getConversiones());
+        try {
+            abrir.abrirReporte();
+        } catch (JRException ex) {
+            
+        }
+    }
+    
     
     @FXML
     private void salir(){

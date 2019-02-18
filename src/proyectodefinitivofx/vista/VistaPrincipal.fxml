@@ -45,8 +45,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="Archivo">
             <items>
-                  <MenuItem fx:id="ultimas" mnemonicParsing="false" onAction="#mostrarUltimasConversiones" text="Ultimas conversiones" />
-                  <MenuItem fx:id="informe" mnemonicParsing="false" text="Generar informe" />
+                  <MenuItem fx:id="ultimas" mnemonicParsing="false" onAction="#mostrarUltimasConversiones" text="Historial" />
+                  <MenuItem fx:id="informe" mnemonicParsing="false" onAction="#generarInforme" text="Generar informe" />
               <MenuItem fx:id="salir" mnemonicParsing="false" onAction="#salir" text="Salir" />
             </items>
           </Menu>

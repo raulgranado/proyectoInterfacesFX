@@ -12,7 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import proyectodefinitivofx.Principal;
-import proyectodefinitivofx.modelo.Conversiones;
+import proyectodefinitivofx.modelo.ConversionesTablaFX;
 
 /**
  * FXML Controller class
@@ -23,16 +23,16 @@ public class UltimasConversionesController implements Initializable {
 
     private Principal main;
     @FXML
-    private TableView<Conversiones> tabla;
+    private TableView<ConversionesTablaFX> tabla;
     
     @FXML
-    private TableColumn<Conversiones, String> desde;
+    private TableColumn<ConversionesTablaFX, String> desde;
     @FXML
-    private TableColumn<Conversiones, String> hasta;
+    private TableColumn<ConversionesTablaFX, String> hasta;
     @FXML
-    private TableColumn<Conversiones, Number> cantidad1;
+    private TableColumn<ConversionesTablaFX, Number> cantidad1;
     @FXML
-    private TableColumn<Conversiones, Number> cantidad2;
+    private TableColumn<ConversionesTablaFX, Number> cantidad2;
     
     /**
      * Initializes the controller class.

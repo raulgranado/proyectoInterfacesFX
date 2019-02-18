@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ca4e4a73-a4ce-4a2a-8706-801daa81fb80">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="hastaMedida" class="java.lang.String"/>
+	<field name="desdeMedida" class="java.lang.String"/>
+	<field name="cantidad1" class="java.lang.Double"/>
+	<field name="cantidad2" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="144" splitType="Stretch">
+			<frame borderSplitType="NoBorders">
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="-9" y="11" width="569" height="119" forecolor="#A31815" backcolor="#1692AB" uuid="975608d1-35da-420b-b976-b612e91369d9">
+					<property name="ShowOutOfBoundContent" value="true"/>
+				</reportElement>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="5.0" lineColor="#000000"/>
+				</box>
+				<staticText>
+					<reportElement x="98" y="49" width="374" height="40" uuid="e5dcf91d-a3d9-4315-99a1-687a6331e88e"/>
+					<textElement>
+						<font size="26" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Conversor de unidades]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement x="136" y="0" width="282" height="30" uuid="7855ee42-dde3-492f-a18f-5311698f5e36"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Historial]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="42">
+			<staticText>
+				<reportElement x="30" y="10" width="100" height="20" uuid="7ae56c76-3ce9-4cb9-bb66-c4d9091e5d4f"/>
+				<text><![CDATA[Desde:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="10" width="100" height="20" uuid="cf2b7f82-8a7e-4af6-a280-1e4fa1326481"/>
+				<text><![CDATA[Cantidad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="10" width="100" height="20" uuid="0a044fe2-e5b7-4a85-b68c-5beaaee611d5"/>
+				<text><![CDATA[Hasta:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="10" width="100" height="20" uuid="c8277525-16a0-4c98-b663-923d420a3214"/>
+				<text><![CDATA[Cantidad:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="20" width="100" height="30" uuid="0390adc0-5d69-4ab2-8fab-9d7abe3d8a42">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f0f3c60-f53d-45d8-b77e-0ff71b77e660"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{desdeMedida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="20" width="100" height="30" uuid="59890cd2-df97-4c67-87e5-8466ae791d62">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c54a2a0a-2efb-4700-8ee5-5c19a9b4346c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{hastaMedida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="20" width="100" height="30" uuid="89ce93a7-3bfe-47d1-a22c-fdaca0d294f7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe5d0bab-587e-4d85-8f8b-27c3d0ee614c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cantidad1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="20" width="100" height="30" uuid="e40a6c42-04b4-40e3-94c7-84577235a917">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="544a19d5-c6ab-4d01-a28d-44b901c0ddec"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cantidad2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="7" y="40" width="540" height="20" uuid="b8255fed-c38f-4303-bce8-ae419feac50b"/>
+				<text><![CDATA[Raúl Granado Hermosín, 2º DAM IES Cristóbal de Monroy]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="10" width="540" height="20" uuid="fdf6c089-d744-4b52-b04f-c212be449d5e"/>
+				<text><![CDATA[Proyecto de desarrollo de interfaces.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

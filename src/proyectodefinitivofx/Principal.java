@@ -17,7 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import proyectodefinitivofx.modelo.Conversiones;
+import proyectodefinitivofx.modelo.ConversionesTablaFX;
 import proyectodefinitivofx.vista.Controlador;
 import proyectodefinitivofx.vista.UltimasConversionesController;
 
@@ -27,7 +27,7 @@ import proyectodefinitivofx.vista.UltimasConversionesController;
  */
 public class Principal extends Application {
     
-    private ObservableList<Conversiones> listaConversiones = FXCollections.observableArrayList();
+    private ObservableList<ConversionesTablaFX> listaConversiones = FXCollections.observableArrayList();
     BorderPane panel;
     Stage primaryStage;
     @Override
@@ -59,11 +59,11 @@ public class Principal extends Application {
         launch(args);
     }
     
-    public void addConversion(Conversiones conv){
+    public void addConversion(ConversionesTablaFX conv){
         listaConversiones.add(conv);
     }
     
-    public ObservableList<Conversiones> getConversiones(){
+    public ObservableList<ConversionesTablaFX> getConversiones(){
         return listaConversiones;
     }
     
