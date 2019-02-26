@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ca4e4a73-a4ce-4a2a-8706-801daa81fb80">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="historial" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ca4e4a73-a4ce-4a2a-8706-801daa81fb80">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -8,6 +9,11 @@
 	<field name="desdeMedida" class="java.lang.String"/>
 	<field name="cantidad1" class="java.lang.Double"/>
 	<field name="cantidad2" class="java.lang.Double"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="numeroConversion" class="java.lang.String"/>
+	<variable name="total" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{hastaMedida}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -44,7 +50,7 @@
 	<columnHeader>
 		<band height="42">
 			<staticText>
-				<reportElement x="30" y="10" width="100" height="20" uuid="7ae56c76-3ce9-4cb9-bb66-c4d9091e5d4f"/>
+				<reportElement x="0" y="11" width="100" height="20" uuid="7ae56c76-3ce9-4cb9-bb66-c4d9091e5d4f"/>
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<staticText>
@@ -62,27 +68,28 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="21" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<textField>
-				<reportElement x="30" y="20" width="100" height="30" uuid="0390adc0-5d69-4ab2-8fab-9d7abe3d8a42">
+				<reportElement x="0" y="0" width="120" height="20" uuid="0390adc0-5d69-4ab2-8fab-9d7abe3d8a42">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f0f3c60-f53d-45d8-b77e-0ff71b77e660"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{desdeMedida}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="330" y="20" width="100" height="30" uuid="59890cd2-df97-4c67-87e5-8466ae791d62">
+				<reportElement x="330" y="0" width="100" height="20" uuid="59890cd2-df97-4c67-87e5-8466ae791d62">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c54a2a0a-2efb-4700-8ee5-5c19a9b4346c"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{hastaMedida}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="175" y="20" width="100" height="30" uuid="89ce93a7-3bfe-47d1-a22c-fdaca0d294f7">
+				<reportElement x="170" y="0" width="110" height="20" uuid="89ce93a7-3bfe-47d1-a22c-fdaca0d294f7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe5d0bab-587e-4d85-8f8b-27c3d0ee614c"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{cantidad1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="460" y="20" width="100" height="30" uuid="e40a6c42-04b4-40e3-94c7-84577235a917">
+				<reportElement x="463" y="-1" width="100" height="21" uuid="e40a6c42-04b4-40e3-94c7-84577235a917">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="544a19d5-c6ab-4d01-a28d-44b901c0ddec"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{cantidad2}]]></textFieldExpression>
@@ -101,4 +108,47 @@
 			</staticText>
 		</band>
 	</pageFooter>
+	<summary>
+		<band height="274">
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="7" y="30" width="540" height="200" uuid="d43bed2d-fb92-4bec-aa78-fa8bb1ff4abf"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{desdeMedida}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{numeroConversion}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{cantidad1}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{hastaMedida}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{numeroConversion}]]></categoryExpression>
+						<valueExpression><![CDATA[
+$F{cantidad2}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<textField>
+				<reportElement x="487" y="242" width="60" height="18" uuid="c224519d-9483-42fc-b4dc-727581490b9e"/>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="316" y="242" width="175" height="20" uuid="3e4bea5f-f7e8-4073-b695-1851ef00439e"/>
+				<text><![CDATA[Total de conversiones realizadas:]]></text>
+			</staticText>
+		</band>
+	</summary>
 </jasperReport>

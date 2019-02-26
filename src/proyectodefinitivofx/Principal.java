@@ -13,6 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -43,6 +44,8 @@ public class Principal extends Application {
             Controlador ctr=loader.getController();
             ctr.setMain(this);
         
+            
+            primaryStage.getIcons().add(new Image(Principal.class.getResourceAsStream("vista/icon/icono.png")));
             primaryStage.setTitle("Conversor");
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);

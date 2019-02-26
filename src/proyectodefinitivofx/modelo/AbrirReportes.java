@@ -17,9 +17,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
-import net.sf.jasperreports.export.SimpleExporterInput;
-import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.swing.JRViewer;
 
 /**
@@ -36,7 +33,7 @@ public class AbrirReportes extends JFrame {
 
     public void abrirReporte() throws JRException {
       
-        String fis = "informe/historial.jrxml";
+        String fis = "historial.jrxml";
         List historial = new ArrayList();
         
         int i=1;
@@ -53,11 +50,6 @@ public class AbrirReportes extends JFrame {
 
         JRViewer viewer = new JRViewer(jasper);
         
-        JRPdfExporter exporter = new JRPdfExporter();
-        exporter.setExporterInput(new SimpleExporterInput(jasper));
-        exporter.setExporterOutput(new SimpleOutputStreamExporterOutput("Historial.pdf"));
-
-        exporter.exportReport();
 
         viewer.setOpaque(true);
         viewer.setVisible(true);
