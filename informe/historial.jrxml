@@ -50,7 +50,7 @@
 	<columnHeader>
 		<band height="42">
 			<staticText>
-				<reportElement x="30" y="10" width="100" height="20" uuid="7ae56c76-3ce9-4cb9-bb66-c4d9091e5d4f"/>
+				<reportElement x="0" y="11" width="100" height="20" uuid="7ae56c76-3ce9-4cb9-bb66-c4d9091e5d4f"/>
 				<text><![CDATA[Desde:]]></text>
 			</staticText>
 			<staticText>
@@ -71,25 +71,25 @@
 		<band height="21" splitType="Stretch">
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<textField>
-				<reportElement x="0" y="0" width="141" height="20" uuid="0390adc0-5d69-4ab2-8fab-9d7abe3d8a42">
+				<reportElement x="0" y="0" width="120" height="20" uuid="0390adc0-5d69-4ab2-8fab-9d7abe3d8a42">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f0f3c60-f53d-45d8-b77e-0ff71b77e660"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{desdeMedida}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="141" y="0" width="138" height="20" uuid="59890cd2-df97-4c67-87e5-8466ae791d62">
+				<reportElement x="330" y="0" width="100" height="20" uuid="59890cd2-df97-4c67-87e5-8466ae791d62">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c54a2a0a-2efb-4700-8ee5-5c19a9b4346c"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{hastaMedida}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="279" y="0" width="138" height="20" uuid="89ce93a7-3bfe-47d1-a22c-fdaca0d294f7">
+				<reportElement x="170" y="0" width="110" height="20" uuid="89ce93a7-3bfe-47d1-a22c-fdaca0d294f7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe5d0bab-587e-4d85-8f8b-27c3d0ee614c"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{cantidad1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="417" y="0" width="138" height="21" uuid="e40a6c42-04b4-40e3-94c7-84577235a917">
+				<reportElement x="463" y="-1" width="100" height="21" uuid="e40a6c42-04b4-40e3-94c7-84577235a917">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="544a19d5-c6ab-4d01-a28d-44b901c0ddec"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{cantidad2}]]></textFieldExpression>
