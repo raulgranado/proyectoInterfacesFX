@@ -21,9 +21,11 @@ import proyectodefinitivofx.modelo.ConversionesTablaFX;
  */
 public class UltimasConversionesController implements Initializable {
 
-    private Principal main;
     @FXML
     private TableView<ConversionesTablaFX> tabla;
+    
+    @FXML
+    private TableColumn<ConversionesTablaFX, String> tipo;
     
     @FXML
     private TableColumn<ConversionesTablaFX, String> desde;
@@ -40,6 +42,7 @@ public class UltimasConversionesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        tipo.setCellValueFactory(cellData -> cellData.getValue().getTipoConversion());
         desde.setCellValueFactory(cellData -> cellData.getValue().getDesdeMedida());
         hasta.setCellValueFactory(cellData -> cellData.getValue().getHastaMedida());
         cantidad1.setCellValueFactory(cellData -> cellData.getValue().getCantidad1());
@@ -49,7 +52,6 @@ public class UltimasConversionesController implements Initializable {
     }
 
     public void setMain(Principal main){
-        this.main=main;
         this.tabla.setItems(main.getConversiones());
     }
     

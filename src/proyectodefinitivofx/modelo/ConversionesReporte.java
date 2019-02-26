@@ -11,16 +11,34 @@ package proyectodefinitivofx.modelo;
  */
 public class ConversionesReporte {
     
-    private String desdeMedida, hastaMedida;
+    private String desdeMedida, hastaMedida, numeroConversion, tipo;
     private double cantidad1, cantidad2;
 
-    public ConversionesReporte(String desdeMedida, String hastaMedida, double cantidad1, double cantidad2) {
+    public ConversionesReporte(String desdeMedida, String hastaMedida, double cantidad1, double cantidad2, String tipo,int numero) {
         this.desdeMedida = desdeMedida;
         this.hastaMedida = hastaMedida;
         this.cantidad1 = cantidad1;
         this.cantidad2 = cantidad2;
+        this.tipo=tipo;
+        this.numeroConversion="Conversion "+numero;
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+    public String getNumeroConversion() {
+        return numeroConversion;
+    }
+
+    public void setNumeroConversion(String tipo) {
+        this.numeroConversion = tipo;
+    }
+    
     public String getDesdeMedida() {
         return desdeMedida;
     }

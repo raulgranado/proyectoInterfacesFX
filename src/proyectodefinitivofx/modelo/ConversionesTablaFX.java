@@ -19,18 +19,29 @@ public class ConversionesTablaFX {
     private final StringProperty hastaMedida;
     private final DoubleProperty cantidad1;
     private final DoubleProperty cantidad2;
+    private final StringProperty tipoConversion;
     
     public ConversionesTablaFX(){
-        this(null,null,0,0);
+        this(null,null,0,0,null);
     }
     
-    public ConversionesTablaFX(String desdeMedida, String hastaMedida, double cantidad1, double cantidad2){
+    public ConversionesTablaFX(String desdeMedida, String hastaMedida, double cantidad1, double cantidad2, String tipoConversion){
         this.desdeMedida = new SimpleStringProperty(desdeMedida);
         this.hastaMedida = new SimpleStringProperty(hastaMedida);
         this.cantidad1 = new SimpleDoubleProperty(cantidad1);
         this.cantidad2 = new SimpleDoubleProperty(cantidad2);
+        this.tipoConversion=new SimpleStringProperty(tipoConversion);
+        
     }
 
+    public StringProperty getTipoConversion() {
+        return tipoConversion;
+    }
+
+    public void setTipoConversion(String str) {
+        this.tipoConversion.set(str);
+    }
+    
     public StringProperty getDesdeMedida() {
         return desdeMedida;
     }

@@ -8,9 +8,7 @@ package proyectodefinitivofx.modelo;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javafx.collections.ObservableList;
 import javax.swing.JFrame;
 import net.sf.jasperreports.engine.JRException;
@@ -41,10 +39,12 @@ public class AbrirReportes extends JFrame {
         String fis = "informe/historial.jrxml";
         List historial = new ArrayList();
         
+        int i=1;
         for(ConversionesTablaFX conv : conversiones){
             ConversionesReporte convRep=new ConversionesReporte(conv.getDesdeMedida().getValue(),
-                    conv.getHastaMedida().getValue(), conv.getCantidad1().getValue(), conv.getCantidad2().getValue());
+                    conv.getHastaMedida().getValue(), conv.getCantidad1().getValue(), conv.getCantidad2().getValue(), conv.getTipoConversion().getValue(), i);
             historial.add(convRep);
+            i++;
         }
 
         JasperReport jasperReport = JasperCompileManager.compileReport(fis);

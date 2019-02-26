@@ -8,6 +8,7 @@
    <children>
       <TableView fx:id="tabla" layoutX="7.0" layoutY="14.0" prefHeight="307.0" prefWidth="370.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
+            <TableColumn fx:id="tipo" prefWidth="75.0" text="Tipo" />
           <TableColumn fx:id="desde" prefWidth="75.0" text="Desde" />
             <TableColumn fx:id="cantidad1" prefWidth="75.0" text="Cantidad" />
           <TableColumn fx:id="hasta" prefWidth="75.0" text="Hasta" />
