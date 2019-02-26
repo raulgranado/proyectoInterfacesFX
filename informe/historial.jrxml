@@ -10,7 +10,6 @@
 	<field name="cantidad1" class="java.lang.Double"/>
 	<field name="cantidad2" class="java.lang.Double"/>
 	<field name="tipo" class="java.lang.String"/>
-	<field name="numeroConversion" class="java.lang.String"/>
 	<variable name="total" class="java.lang.Integer" calculation="Count">
 		<variableExpression><![CDATA[$F{hastaMedida}]]></variableExpression>
 	</variable>
@@ -71,25 +70,25 @@
 		<band height="21" splitType="Stretch">
 			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
 			<textField>
-				<reportElement x="0" y="0" width="120" height="20" uuid="0390adc0-5d69-4ab2-8fab-9d7abe3d8a42">
+				<reportElement x="0" y="0" width="141" height="20" uuid="0390adc0-5d69-4ab2-8fab-9d7abe3d8a42">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f0f3c60-f53d-45d8-b77e-0ff71b77e660"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{desdeMedida}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="330" y="0" width="100" height="20" uuid="59890cd2-df97-4c67-87e5-8466ae791d62">
+				<reportElement x="141" y="0" width="138" height="20" uuid="59890cd2-df97-4c67-87e5-8466ae791d62">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c54a2a0a-2efb-4700-8ee5-5c19a9b4346c"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{hastaMedida}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="170" y="0" width="110" height="20" uuid="89ce93a7-3bfe-47d1-a22c-fdaca0d294f7">
+				<reportElement x="279" y="0" width="138" height="20" uuid="89ce93a7-3bfe-47d1-a22c-fdaca0d294f7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe5d0bab-587e-4d85-8f8b-27c3d0ee614c"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{cantidad1}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="463" y="-1" width="100" height="21" uuid="e40a6c42-04b4-40e3-94c7-84577235a917">
+				<reportElement x="417" y="0" width="138" height="21" uuid="e40a6c42-04b4-40e3-94c7-84577235a917">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="544a19d5-c6ab-4d01-a28d-44b901c0ddec"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{cantidad2}]]></textFieldExpression>
@@ -112,7 +111,7 @@
 		<band height="274">
 			<barChart>
 				<chart evaluationTime="Report">
-					<reportElement x="7" y="30" width="540" height="200" uuid="d43bed2d-fb92-4bec-aa78-fa8bb1ff4abf"/>
+					<reportElement x="7" y="30" width="540" height="200" uuid="e7fb160c-1e04-47a7-9c46-6a80575067f5"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
@@ -120,12 +119,12 @@
 				<categoryDataset>
 					<categorySeries>
 						<seriesExpression><![CDATA[$F{desdeMedida}]]></seriesExpression>
-						<categoryExpression><![CDATA[$F{numeroConversion}]]></categoryExpression>
+						<categoryExpression><![CDATA[$F{tipo}]]></categoryExpression>
 						<valueExpression><![CDATA[$F{cantidad1}]]></valueExpression>
 					</categorySeries>
 					<categorySeries>
 						<seriesExpression><![CDATA[$F{hastaMedida}]]></seriesExpression>
-						<categoryExpression><![CDATA[$F{numeroConversion}]]></categoryExpression>
+						<categoryExpression><![CDATA[$F{tipo}]]></categoryExpression>
 						<valueExpression><![CDATA[
 $F{cantidad2}]]></valueExpression>
 					</categorySeries>

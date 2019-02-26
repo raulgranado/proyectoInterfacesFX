@@ -27,6 +27,7 @@ public class UltimasConversionesController implements Initializable {
     @FXML
     private TableColumn<ConversionesTablaFX, String> tipo;
     
+    
     @FXML
     private TableColumn<ConversionesTablaFX, String> desde;
     @FXML

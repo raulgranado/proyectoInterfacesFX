@@ -39,7 +39,7 @@ public class AbrirReportes extends JFrame {
         int i=1;
         for(ConversionesTablaFX conv : conversiones){
             ConversionesReporte convRep=new ConversionesReporte(conv.getDesdeMedida().getValue(),
-                    conv.getHastaMedida().getValue(), conv.getCantidad1().getValue(), conv.getCantidad2().getValue(), conv.getTipoConversion().getValue(), i);
+                    conv.getHastaMedida().getValue(), conv.getCantidad1().getValue(), conv.getCantidad2().getValue(), conv.getTipoConversion().getValue());
             historial.add(convRep);
             i++;
         }
